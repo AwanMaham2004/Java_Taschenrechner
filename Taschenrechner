@@ -1,0 +1,122 @@
+import java.util.Scanner;
+import java.lang.*;
+public class functionsCalculatorSwitchCase{
+  public static void main(String [] args){
+    Scanner scan = new Scanner(System.in);
+    int ip=0;
+    System.out.println("Welcome to Maham's Calculator");
+    while (!(ip>8)) { 
+      System.out.println("\n Choose a number: \n");
+      System.out.println("1: Add");
+      System.out.println("2: Subtract");
+      System.out.println("3: Multiply");
+      System.out.println("4: Divide");
+      System.out.println("5: Modulus");
+      System.out.println("6: Average");
+      System.out.println("7: Square n²");
+      System.out.println("8: Exponent n^x \n");
+      
+      ip = scan.nextInt(); 
+      int num1, num2=0; 
+      
+      
+      switch (ip) {
+        case 1: 
+          System.out.println("Enter 2 numbers for addition: ");
+          num1 = scan.nextInt();
+          num2 = scan.nextInt();
+          System.out.println(add(num1, num2)); 
+          break;
+        case 2: 
+          System.out.println("Enter 2 numbers for Subtraction: ");
+          num1 = scan.nextInt();
+          num2 = scan.nextInt();
+          System.out.println(sub(num1, num2)); 
+          break;
+        case 3: 
+          System.out.println("Enter 2 numbers for Multiplication: ");
+          num1 = scan.nextInt();
+          num2 = scan.nextInt();
+          System.out.println(mul(num1, num2)); 
+          break;
+        case 4: 
+          System.out.println("Enter 2 numbers for Division: ");
+          num1 = scan.nextInt();
+          num2 = scan.nextInt();
+          System.out.println(div(num1, num2)); 
+          break;
+        case 5: 
+          System.out.println("Enter 2 numbers for Modulus: ");
+          num1 = scan.nextInt();
+          num2 = scan.nextInt();
+          System.out.println(mod(num1, num2)); 
+          break;  
+        case 6: 
+          System.out.println("Enter 5 numbers for Average: ");
+          int [] n = new int [5];
+          for (int i = 0; i<n.length; i++) {
+            n[i] = scan.nextInt();
+          } 
+          System.out.println("Average = " + avg(n));
+          break;
+        case 7:
+          System.out.println(Square());
+          break; 
+        case 8: 
+          System.out.println(Exponent());
+          break;  
+        default: 
+          System.out.println("The number you entered does not exist in the list!");
+          System.out.println("Tschüss!");
+      }
+    } 
+  }
+            
+  public static int add(int num1, int num2){
+    return num1 + num2; 
+  }
+  public static int sub(int num1, int num2){
+    return num1 - num2;
+  }
+  public static int mul(int num1, int num2){
+    return num1 * num2;
+  }   
+  public static double div(int num1, int num2){
+    return num1 / num2;
+  }
+  public static int mod(int num1, int num2){
+    return num1 % num2;
+  }          
+  public static int avg(int[] arr){
+    int average=0;
+    int sum = 0;
+    for (int i = 0; i<arr.length; i++) {
+      sum+=arr[i];
+    } 
+    average = sum/arr.length;
+    return average;
+  }
+  public static int Square(){
+    Scanner scan = new Scanner(System.in);
+    System.out.println("Enter 1 value for Square: ");
+    int value = scan.nextInt();
+    value*=value;  
+    return value;
+  } 
+  public static double Exponent(){
+    Scanner scan = new Scanner(System.in);
+    System.out.println("Enter 2 values for Exponent: ");
+    System.out.print("n = ");
+    int n = scan.nextInt();
+    System.out.print("x = ");
+    int x = scan.nextInt();
+    double exp=0;
+    for (int i = 1; i<=x; i++) {
+//      exp = n*n;
+      exp = Math.pow(n, x);
+    }
+    return exp;
+  }   
+}
+  
+
